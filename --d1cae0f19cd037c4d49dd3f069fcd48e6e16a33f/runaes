@@ -1,0 +1,16 @@
+#!/bin/bash
+
+java -cp dist/FasterGC.jar:extlibs/jargs.jar:extlibs/commons-io-1.4.jar Test.TestAESEncryptServer 1>results/aesserverout 2>results/aesservererr &
+
+sleep 0.8
+
+java -cp dist/FasterGC.jar:extlibs/commons-io-1.4.jar:extlibs/jargs.jar Test.TestAESEncryptClient -a --server localhost -r 1 1>results/aesclientout 2>results/aesclienterr &
+
+sleep 0.8
+
+
+java -cp dist/FasterGC.jar:extlibs/commons-io-1.4.jar:extlibs/jargs.jar Test.TestAESEncryptClient1 -a --server localhost -r 1 1>results/aesclient1out 2>results/aesclient1err &
+
+sleep 0.8
+
+java -cp dist/FasterGC.jar:extlibs/commons-io-1.4.jar:extlibs/jargs.jar Test.TestAESEncryptOwner -a --server localhost -r 1 1>results/aesownerout 2>results/aesownererr &
