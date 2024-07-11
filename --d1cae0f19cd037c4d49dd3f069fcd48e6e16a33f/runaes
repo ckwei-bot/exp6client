@@ -8,8 +8,27 @@ java -cp dist/FasterGC.jar:extlibs/commons-io-1.4.jar:extlibs/jargs.jar Test.Tes
 
 sleep 0.8
 
-
 java -cp dist/FasterGC.jar:extlibs/commons-io-1.4.jar:extlibs/jargs.jar Test.TestAESEncryptClient1 -a --server localhost -r 1 1>results/aesclient1out 2>results/aesclient1err &
+
+sleep 0.8
+
+java -cp dist/FasterGC.jar:extlibs/commons-io-1.4.jar:extlibs/jargs.jar Test.TestAESEncryptClient2 -a --server localhost -r 1 1>results/aesclient2out 2>results/aesclient2err &
+
+sleep 0.8
+
+java -cp dist/FasterGC.jar:extlibs/commons-io-1.4.jar:extlibs/jargs.jar Test.TestAESEncryptClient3 -a --server localhost -r 1 1>results/aesclient3out 2>results/aesclient3err &
+
+sleep 0.8
+
+java -cp dist/FasterGC.jar:extlibs/commons-io-1.4.jar:extlibs/jargs.jar Test.TestAESEncryptClient4 -a --server localhost -r 1 1>results/aesclient4out 2>results/aesclient4err &
+
+sleep 0.8
+
+java -cp dist/FasterGC.jar:extlibs/commons-io-1.4.jar:extlibs/jargs.jar Test.TestAESEncryptClient5 -a --server localhost -r 1 1>results/aesclient5out 2>results/aesclient5err &
+
+sleep 0.8
+
+java -cp dist/FasterGC.jar:extlibs/commons-io-1.4.jar:extlibs/jargs.jar Test.TestAESEncryptClient6 -a --server localhost -r 1 1>results/aesclient6out 2>results/aesclient6err &
 
 sleep 0.8
 
