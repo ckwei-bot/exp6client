@@ -66,16 +66,17 @@ public abstract class ProgClient extends Program {
 		}
 //		ProgCommon.oos = new java.io.ObjectOutputStream(sock.getOutputStream());
 //		ProgCommon.ois = new java.io.ObjectInputStream(sock.getInputStream());
-		System.out.println("socket-mid");
+//		System.out.println("socket-mid");
 //		CountingOutputStream cos0_1 = new CountingOutputStream(clientSocket0_1.getOutputStream());
 //		CountingInputStream cis0_1 = new CountingInputStream(clientSocket0_1.getInputStream());
 		System.out.println("socket-mid1");
-		CountingOutputStream cos0_own = new CountingOutputStream(clientSocket0_own.getOutputStream());
-		CountingInputStream cis0_own = new CountingInputStream(clientSocket0_own.getInputStream());
-		System.out.println("socket-mid4");
+
+//		System.out.println("socket-mid4");
 		ProgCommon.oos0 = new java.io.ObjectOutputStream(sock0.getOutputStream());
 		ProgCommon.ois0 = new java.io.ObjectInputStream(sock0.getInputStream());
 		System.out.println("socket-mid5");
+		CountingOutputStream cos0_own = new CountingOutputStream(clientSocket0_own.getOutputStream());
+		CountingInputStream cis0_own = new CountingInputStream(clientSocket0_own.getInputStream());
 //		ProgCommon.oos1 = new ObjectOutputStream(cos0_1);
 //		ProgCommon.ois1 = new ObjectInputStream(cis0_1);
 		System.out.println("socket-mid6");

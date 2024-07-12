@@ -18,7 +18,7 @@ public abstract class ProgClient1 extends Program {
     public static String serverIPname = "localhost";             // server IP name
     //    private final int    serverPort   = 23456;                   // server port number
     private final int    ClientPort1   = 23451;
-    private final int    ClientPort1_own   = 23458;
+    private final int    ClientPort1_own   = 23461;
     // private final int    ClientPort0_1   = 23454;
 
     private ServerSocket       sock1_own         = null;              // original server socket

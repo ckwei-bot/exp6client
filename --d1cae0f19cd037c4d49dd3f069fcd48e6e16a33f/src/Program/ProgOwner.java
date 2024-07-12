@@ -11,6 +11,8 @@ import YaoGC.*;
 import org.apache.commons.io.input.CountingInputStream;
 import org.apache.commons.io.output.CountingOutputStream;
 
+import static java.lang.Thread.sleep;
+
 public abstract class ProgOwner extends Program {
 
     public static String serverIPname = "localhost";             // server IP name
@@ -51,12 +53,26 @@ public abstract class ProgOwner extends Program {
 
     private void create_socket_and_connect() throws Exception {
         sockown = new java.net.Socket(serverIPname, OwnerPort);          // create socket and connect
+        sleep(20);
+
         clientSocket0_own = new java.net.Socket(serverIPname, ClientPort0_own);          // create socket and connect
+        sleep(20);
+
         clientSocket1_own = new java.net.Socket(serverIPname, ClientPort1_own);          // create socket and connect
+        sleep(20);
+
         clientSocket2_own = new java.net.Socket(serverIPname, ClientPort2_own);          // create socket and connect
+        sleep(20);
+
         clientSocket3_own = new java.net.Socket(serverIPname, ClientPort3_own);          // create socket and connect
+        sleep(20);
+
         clientSocket4_own = new java.net.Socket(serverIPname, ClientPort4_own);          // create socket and connect
+        sleep(20);
+
         clientSocket5_own = new java.net.Socket(serverIPname, ClientPort5_own);          // create socket and connect
+        sleep(20);
+
         clientSocket6_own = new java.net.Socket(serverIPname, ClientPort6_own);          // create socket and connect
 
 

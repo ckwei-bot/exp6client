@@ -63,7 +63,7 @@ public abstract class ProgClient6 extends Program {
         try {
 
             sock6_own = new ServerSocket(ClientPort6_own);
-            System.out.println("waiting for client5_own to connect");
+            System.out.println("waiting for client6_own to connect");
             sleep(20);
 
             clientSocket6_own = sock6_own.accept();
