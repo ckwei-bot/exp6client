@@ -68,7 +68,7 @@ public class AESEncryptOwner extends ProgOwner {
         clbs3 = (BigInteger[]) AESEncryptCommon.ois3.readObject();
         clbs4 = (BigInteger[]) AESEncryptCommon.ois4.readObject();
         clbs5 = (BigInteger[]) AESEncryptCommon.ois5.readObject();
-        clbs6 = (BigInteger[]) AESEncryptCommon.ois6.readObject();
+//        clbs6 = (BigInteger[]) AESEncryptCommon.ois6.readObject();
         BigInteger m = BigInteger.ZERO;
 
         for (int i = 0; i < 16; i++)
@@ -85,7 +85,7 @@ public class AESEncryptOwner extends ProgOwner {
 
     protected void execCircuit() throws Exception {//owner activity
 //		System.out.println("Test1");
-        clbs = new BigInteger[clbs0.length + clbs1.length+ clbs2.length+ clbs3.length+ clbs4.length+ clbs5.length+ clbs6.length];
+        clbs = new BigInteger[clbs0.length + clbs1.length+ clbs2.length+ clbs3.length+ clbs4.length+ clbs5.length];
 //		System.out.println("Test1-mid");
         System.arraycopy(clbs0,0,clbs,0,clbs0.length);
         System.arraycopy(clbs1,0,clbs,clbs0.length,clbs1.length);
@@ -93,7 +93,7 @@ public class AESEncryptOwner extends ProgOwner {
         System.arraycopy(clbs3,0,clbs,clbs0.length+clbs1.length+clbs2.length,clbs3.length);
         System.arraycopy(clbs4,0,clbs,clbs0.length+clbs1.length+clbs2.length+clbs3.length,clbs4.length);
         System.arraycopy(clbs5,0,clbs,clbs0.length+clbs1.length+clbs2.length+clbs3.length+clbs4.length,clbs5.length);
-        System.arraycopy(clbs6,0,clbs,clbs0.length+clbs1.length+clbs2.length+clbs3.length+clbs4.length+clbs5.length,clbs6.length);
+//        System.arraycopy(clbs6,0,clbs,clbs0.length+clbs1.length+clbs2.length+clbs3.length+clbs4.length+clbs5.length,clbs6.length);
 
 
 

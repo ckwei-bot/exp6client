@@ -37,7 +37,7 @@ AESEncryptCommon extends ProgCommon {
 
 	static void initCircuits() {
 		ccsin = new Circuit[1];
-		ccsin[0] = ccMUL = new Mulin(7);//multi input
+		ccsin[0] = ccMUL = new Mulin(6);//multi input
 		ccs = new Circuit[3];
 		ccs[0] = ccARK = new AddRoundKey();//轮密钥
 		ccs[1] = ccSBX = new SBox();//S盒

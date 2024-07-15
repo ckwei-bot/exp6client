@@ -35,8 +35,8 @@ public class AESEncryptServer extends ProgServer {
 		AESEncryptCommon.oos4.flush();
 		AESEncryptCommon.oos5.writeInt(AESEncryptCommon.Nk);
 		AESEncryptCommon.oos5.flush();
-		AESEncryptCommon.oos6.writeInt(AESEncryptCommon.Nk);
-		AESEncryptCommon.oos6.flush();
+//		AESEncryptCommon.oos6.writeInt(AESEncryptCommon.Nk);
+//		AESEncryptCommon.oos6.flush();
 		AESEncryptCommon.oosown.writeInt(AESEncryptCommon.Nk);
 		AESEncryptCommon.oosown.flush();
 		System.out.println("send nk-end");
@@ -49,7 +49,7 @@ public class AESEncryptServer extends ProgServer {
 		LookupTableSender.oos3 = AESEncryptCommon.oos3;//应该把stable统一发给两个client
 		LookupTableSender.oos4 = AESEncryptCommon.oos4;//应该把stable统一发给两个client
 		LookupTableSender.oos5 = AESEncryptCommon.oos5;//应该把stable统一发给两个client
-		LookupTableSender.oos6 = AESEncryptCommon.oos6;//应该把stable统一发给两个client
+//		LookupTableSender.oos6 = AESEncryptCommon.oos6;//应该把stable统一发给两个client
 
 
 		LookupTableSender.oosown = AESEncryptCommon.oosown;//应该把stable统一发给两个client
@@ -71,7 +71,7 @@ public class AESEncryptServer extends ProgServer {
 		clps3 = new BigInteger[ AESEncryptCommon.Nb*32][2];
 		clps4 = new BigInteger[ AESEncryptCommon.Nb*32][2];
 		clps5 = new BigInteger[ AESEncryptCommon.Nb*32][2];
-		clps6 = new BigInteger[ AESEncryptCommon.Nb*32][2];
+//		clps6 = new BigInteger[ AESEncryptCommon.Nb*32][2];
 
 		clpsown = new BigInteger[ AESEncryptCommon.Nb*32][2];
 
@@ -87,7 +87,7 @@ public class AESEncryptServer extends ProgServer {
 			clps3[i] = Wire.newLabelPair();
 			clps4[i] = Wire.newLabelPair();
 			clps5[i] = Wire.newLabelPair();
-			clps6[i] = Wire.newLabelPair();
+//			clps6[i] = Wire.newLabelPair();
 
 			clpsown[i] = Wire.newLabelPair();
 
@@ -124,7 +124,7 @@ public class AESEncryptServer extends ProgServer {
 			Utils.writeBigInteger(slps[i][idx], bytelength, AESEncryptCommon.oos3);
 			Utils.writeBigInteger(slps[i][idx], bytelength, AESEncryptCommon.oos4);
 			Utils.writeBigInteger(slps[i][idx], bytelength, AESEncryptCommon.oos5);
-			Utils.writeBigInteger(slps[i][idx], bytelength, AESEncryptCommon.oos6);
+//			Utils.writeBigInteger(slps[i][idx], bytelength, AESEncryptCommon.oos6);
 			Utils.writeBigInteger(slps[i][idx], bytelength, AESEncryptCommon.oosown);
 
 		}
@@ -135,7 +135,7 @@ public class AESEncryptServer extends ProgServer {
 		AESEncryptCommon.oos3.flush();
 		AESEncryptCommon.oos4.flush();
 		AESEncryptCommon.oos5.flush();
-		AESEncryptCommon.oos6.flush();
+//		AESEncryptCommon.oos6.flush();
 		AESEncryptCommon.oosown.flush();
 		StopWatch.taskTimeStamp("sending labels for selfs inputs");
 
@@ -157,8 +157,8 @@ public class AESEncryptServer extends ProgServer {
 		snder5.execProtocol(clps5);
 		StopWatch.taskTimeStamp("sending labels for peer5s inputs");
 
-		snder6.execProtocol(clps6);
-		StopWatch.taskTimeStamp("sending labels for peer6s inputs");
+//		snder6.execProtocol(clps6);
+//		StopWatch.taskTimeStamp("sending labels for peer6s inputs");
 
 		snderown.execProtocol(clpsown);
 		StopWatch.taskTimeStamp("sending labels for peerowns inputs");
@@ -174,7 +174,7 @@ public class AESEncryptServer extends ProgServer {
 		BigInteger[] clbs3 = new BigInteger[ AESEncryptCommon.Nb*32];
 		BigInteger[] clbs4 = new BigInteger[ AESEncryptCommon.Nb*32];
 		BigInteger[] clbs5 = new BigInteger[ AESEncryptCommon.Nb*32];
-		BigInteger[] clbs6 = new BigInteger[ AESEncryptCommon.Nb*32];
+//		BigInteger[] clbs6 = new BigInteger[ AESEncryptCommon.Nb*32];
 
 		BigInteger[] clbsown = new BigInteger[ AESEncryptCommon.Nb*32];
 
@@ -189,20 +189,20 @@ public class AESEncryptServer extends ProgServer {
 			clbs3[i] = clps3[i][0];
 			clbs4[i] = clps4[i][0];
 			clbs5[i] = clps5[i][0];
-			clbs6[i] = clps6[i][0];
+//			clbs6[i] = clps6[i][0];
 
 			clbsown[i] = clpsown[i][0];
 
 		}
 
-		BigInteger[] mergeclbs = new BigInteger[clbs.length+ clbs1.length+ clbs2.length+ clbs3.length+ clbs4.length+ clbs5.length+ clbs6.length];
+		BigInteger[] mergeclbs = new BigInteger[clbs.length+ clbs1.length+ clbs2.length+ clbs3.length+ clbs4.length+ clbs5.length];
 		System.arraycopy(clbs, 0, mergeclbs, 0, clbs.length);
 		System.arraycopy(clbs1, 0, mergeclbs, clbs.length, clbs1.length);
 		System.arraycopy(clbs2, 0, mergeclbs, clbs.length+clbs1.length, clbs2.length);
 		System.arraycopy(clbs3, 0, mergeclbs, clbs.length+clbs1.length+clbs2.length, clbs3.length);
 		System.arraycopy(clbs4, 0, mergeclbs, clbs.length+clbs1.length+clbs2.length+clbs3.length, clbs4.length);
 		System.arraycopy(clbs5, 0, mergeclbs, clbs.length+clbs1.length+clbs2.length+clbs3.length+clbs4.length, clbs5.length);
-		System.arraycopy(clbs6, 0, mergeclbs, clbs.length+clbs1.length+clbs2.length+clbs3.length+clbs4.length+clbs5.length, clbs6.length);
+//		System.arraycopy(clbs6, 0, mergeclbs, clbs.length+clbs1.length+clbs2.length+clbs3.length+clbs4.length+clbs5.length, clbs6.length);
 
 		System.out.println("Test1-mid");
 		outputState = AESEncryptCommon.Cipher(State.fromLabels(slbs), State.fromLabels(mergeclbs));
@@ -227,7 +227,7 @@ public class AESEncryptServer extends ProgServer {
 		snder3.openOT();
 		snder4.openOT();
 		snder5.openOT();
-		snder6.openOT();
+//		snder6.openOT();
 		snderown.openOT();
 
 	}
@@ -244,7 +244,7 @@ public class AESEncryptServer extends ProgServer {
 		BigInteger[] clbs3 = new BigInteger[ AESEncryptCommon.Nb*32];
 		BigInteger[] clbs4 = new BigInteger[ AESEncryptCommon.Nb*32];
 		BigInteger[] clbs5 = new BigInteger[ AESEncryptCommon.Nb*32];
-		BigInteger[] clbs6 = new BigInteger[ AESEncryptCommon.Nb*32];
+//		BigInteger[] clbs6 = new BigInteger[ AESEncryptCommon.Nb*32];
 		BigInteger[] clbsown = new BigInteger[ AESEncryptCommon.Nb*32];
 
 
@@ -260,19 +260,19 @@ public class AESEncryptServer extends ProgServer {
 			clbs3[i] = clps3[i][0];
 			clbs4[i] = clps4[i][0];
 			clbs5[i] = clps5[i][0];
-			clbs6[i] = clps6[i][0];
+//			clbs6[i] = clps6[i][0];
 			clbsown[i] = clpsown[i][0];
 
 		}
 
-		BigInteger[] mergeclbs = new BigInteger[clbs.length+ clbs1.length+ clbs2.length+ clbs3.length+ clbs4.length+ clbs5.length+ clbs6.length];
+		BigInteger[] mergeclbs = new BigInteger[clbs.length+ clbs1.length+ clbs2.length+ clbs3.length+ clbs4.length+ clbs5.length];
 		System.arraycopy(clbs, 0, mergeclbs, 0, clbs.length);
 		System.arraycopy(clbs1, 0, mergeclbs, clbs.length, clbs1.length);
 		System.arraycopy(clbs2, 0, mergeclbs, clbs.length+clbs1.length, clbs2.length);
 		System.arraycopy(clbs3, 0, mergeclbs, clbs.length+clbs1.length+clbs2.length, clbs3.length);
 		System.arraycopy(clbs4, 0, mergeclbs, clbs.length+clbs1.length+clbs2.length+clbs3.length, clbs4.length);
 		System.arraycopy(clbs5, 0, mergeclbs, clbs.length+clbs1.length+clbs2.length+clbs3.length+clbs4.length, clbs5.length);
-		System.arraycopy(clbs6, 0, mergeclbs, clbs.length+clbs1.length+clbs2.length+clbs3.length+clbs4.length+clbs5.length, clbs6.length);
+//		System.arraycopy(clbs6, 0, mergeclbs, clbs.length+clbs1.length+clbs2.length+clbs3.length+clbs4.length+clbs5.length, clbs6.length);
 		AESEncryptCommon.oosown.writeObject(slbs);
 		//448*10+448*11
 

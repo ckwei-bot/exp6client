@@ -125,13 +125,13 @@ public class LookupTableSender extends LookupTableAgent {
 		oos5.writeInt(nBits);
 		oos5.writeBoolean(extCase);
 		oos5.flush();
-		oos6.writeInt(nRows);
-		oos6.writeInt(nRIBits);
-		oos6.writeInt(nCols);
-		oos6.writeInt(nCIBits);
-		oos6.writeInt(nBits);
-		oos6.writeBoolean(extCase);
-		oos6.flush();
+//		oos6.writeInt(nRows);
+//		oos6.writeInt(nRIBits);
+//		oos6.writeInt(nCols);
+//		oos6.writeInt(nCIBits);
+//		oos6.writeInt(nBits);
+//		oos6.writeBoolean(extCase);
+//		oos6.flush();
 
 		oosown.writeInt(nRows);
 		oosown.writeInt(nRIBits);
@@ -232,8 +232,8 @@ public class LookupTableSender extends LookupTableAgent {
 					oos4.flush();
 					Utils.writeBigInteger(EGTable[i][j], nBytes*Wire.labelBitLength, oos5);
 					oos5.flush();
-					Utils.writeBigInteger(EGTable[i][j], nBytes*Wire.labelBitLength, oos6);
-					oos6.flush();
+//					Utils.writeBigInteger(EGTable[i][j], nBytes*Wire.labelBitLength, oos6);
+//					oos6.flush();
 
 
 					Utils.writeBigInteger(EGTable[i][j], nBytes*Wire.labelBitLength, oosown);
@@ -265,8 +265,8 @@ public class LookupTableSender extends LookupTableAgent {
 						Utils.writeBigInteger(EGTable[i][j], nBytes*Wire.labelBitLength, oos4);
 						oos5.writeBoolean(true);
 						Utils.writeBigInteger(EGTable[i][j], nBytes*Wire.labelBitLength, oos5);
-						oos6.writeBoolean(true);
-						Utils.writeBigInteger(EGTable[i][j], nBytes*Wire.labelBitLength, oos6);
+//						oos6.writeBoolean(true);
+//						Utils.writeBigInteger(EGTable[i][j], nBytes*Wire.labelBitLength, oos6);
 
 
 						oosown.writeBoolean(true);
@@ -285,8 +285,8 @@ public class LookupTableSender extends LookupTableAgent {
 						oos4.flush();
 						oos5.writeBoolean(false);
 						oos5.flush();
-						oos6.writeBoolean(false);
-						oos6.flush();
+//						oos6.writeBoolean(false);
+//						oos6.flush();
 
 						oosown.writeBoolean(false);
 						oosown.flush();

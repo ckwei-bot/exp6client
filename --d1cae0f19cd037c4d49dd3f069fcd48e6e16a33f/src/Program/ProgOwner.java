@@ -71,9 +71,9 @@ public abstract class ProgOwner extends Program {
         sleep(20);
 
         clientSocket5_own = new java.net.Socket(serverIPname, ClientPort5_own);          // create socket and connect
-        sleep(20);
-
-        clientSocket6_own = new java.net.Socket(serverIPname, ClientPort6_own);          // create socket and connect
+//        sleep(20);
+//
+//        clientSocket6_own = new java.net.Socket(serverIPname, ClientPort6_own);          // create socket and connect
 
 
 //		ProgCommon.oos = new java.io.ObjectOutputStream(sock.getOutputStream());
@@ -90,8 +90,8 @@ public abstract class ProgOwner extends Program {
         ProgCommon.ois4 = new java.io.ObjectInputStream(clientSocket4_own.getInputStream());
         ProgCommon.oos5 = new java.io.ObjectOutputStream(clientSocket5_own.getOutputStream());
         ProgCommon.ois5 = new java.io.ObjectInputStream(clientSocket5_own.getInputStream());
-        ProgCommon.oos6 = new java.io.ObjectOutputStream(clientSocket6_own.getOutputStream());
-        ProgCommon.ois6 = new java.io.ObjectInputStream(clientSocket6_own.getInputStream());
+//        ProgCommon.oos6 = new java.io.ObjectOutputStream(clientSocket6_own.getOutputStream());
+//        ProgCommon.ois6 = new java.io.ObjectInputStream(clientSocket6_own.getInputStream());
 
         ProgCommon.oosown = new java.io.ObjectOutputStream(sockown.getOutputStream());
         ProgCommon.oisown = new java.io.ObjectInputStream(sockown.getInputStream());
@@ -124,9 +124,9 @@ public abstract class ProgOwner extends Program {
         ProgCommon.ois5.close();
         clientSocket5_own.close();
 
-        ProgCommon.oos6.close();                                                   // close everything
-        ProgCommon.ois6.close();
-        clientSocket6_own.close();
+//        ProgCommon.oos6.close();                                                   // close everything
+//        ProgCommon.ois6.close();
+//        clientSocket6_own.close();
 
         ProgCommon.oosown.close();                                                   // close everything
         ProgCommon.oisown.close();
