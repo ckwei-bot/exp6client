@@ -61,6 +61,7 @@ public class AESEncryptOwner extends ProgOwner {
             slbs[i] = Utils.readBigInteger(bytelength, AESEncryptCommon.oisown);
         }
         StopWatch.taskTimeStamp("receiving labels for peer's inputs");
+        //(64*10+64*11)*[7]
         clbs0 = (BigInteger[]) AESEncryptCommon.ois0.readObject();
         clbs1 = (BigInteger[]) AESEncryptCommon.ois1.readObject();
         clbs2 = (BigInteger[]) AESEncryptCommon.ois2.readObject();
@@ -155,6 +156,7 @@ public class AESEncryptOwner extends ProgOwner {
 
         System.out.println("re1");
         BigInteger[] slbs1 = (BigInteger[]) AESEncryptCommon.oisown.readObject();
+
         System.out.println("re2");
 
         BigInteger[] mergeclbs1 = (BigInteger[]) AESEncryptCommon.oisown.readObject();

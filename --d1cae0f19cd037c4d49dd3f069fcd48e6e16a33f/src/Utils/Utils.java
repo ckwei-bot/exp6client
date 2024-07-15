@@ -23,7 +23,8 @@ public class Utils {
 	}
 
 	os.write(temp);
-    }
+
+	}
 
     /* 
      * Read a BigInteger of n bytes from "is", which is written with writeBigInteger. (Deserialization)

@@ -122,10 +122,16 @@ public class NPOTSender extends Sender {
 
 
 		for (int i = 0; i < numOfPairs; i++) {
+			//64*1111+64*1010=71104+64640=135744 还没有乘8
+			//			System.out.println("numofpairs:" + numOfPairs);
 			h0[i] = h0[i].modPow(r, p);
 			h1[i] = dr.multiply(h0[i].modInverse(p)).mod(p);//not match with jko13
 			msg[i][0] = Cipher.encrypt(h0[i], msgPairs[i][0], msgBitLength);
+//			byte[] byteArray = msg[i][0].toByteArray();
 			msg[i][1] = Cipher.encrypt(h1[i], msgPairs[i][1], msgBitLength);
+//			byte[] byteArray1 = msg[i][0].toByteArray();
+//			System.out.println("byte length"+byteArray.length+byteArray1.length);
+
 		}
 
 		oos.writeObject(msg);
@@ -137,6 +143,9 @@ public class NPOTSender extends Sender {
 
 	private void step2() throws Exception {
 		oos.writeObject(r);
+//		byte[] byteArray1 = r.toByteArray();
+//		System.out.println("r-length:"+byteArray1.length);//16
+
 		System.out.println("sender-step2");
 
 		oos.flush();
@@ -144,12 +153,19 @@ public class NPOTSender extends Sender {
 	}
 
 	private void step3() throws Exception {
-		Integer flag = (Integer) ois.readObject();
+		Integer flag = (Integer) ois.readObject();//4
 		int value = flag.intValue();
 		if(value != 1){
 			throw  new Exception("flag is 0");
 		}
 		oos.writeObject(msgPairs);
+//		for(BigInteger[] ms :msgPairs){
+//			byte[] byteArray = ms[0].toByteArray();
+//			byte[] byteArray1 = ms[1].toByteArray();
+//			System.out.println("step3-byte length"+byteArray.length+byteArray1.length);
+//			//64*1010+64*1111*[8]
+//
+//		}
 		System.out.println("sender-step3");
 
 		oos.flush();

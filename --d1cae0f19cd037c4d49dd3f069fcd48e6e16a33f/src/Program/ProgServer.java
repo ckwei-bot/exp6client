@@ -128,6 +128,7 @@ public abstract class ProgServer extends Program {
 
 			StopWatch.cos = cos;
 			StopWatch.cis = cis;
+			System.out.println("own_s_byte:"+cosown.getByteCount());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

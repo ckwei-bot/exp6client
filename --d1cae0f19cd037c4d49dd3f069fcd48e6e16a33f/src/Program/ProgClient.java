@@ -83,6 +83,7 @@ public abstract class ProgClient extends Program {
 		ProgCommon.oosown = new ObjectOutputStream(cos0_own);
 		ProgCommon.oisown = new ObjectInputStream(cis0_own);
 		System.out.println("socket-end");
+
 	}
 
 	private void cleanup() throws Exception {

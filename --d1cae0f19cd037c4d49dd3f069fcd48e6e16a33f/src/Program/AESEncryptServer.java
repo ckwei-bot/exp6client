@@ -23,7 +23,7 @@ public class AESEncryptServer extends ProgServer {
 
 	protected void init() throws Exception {
 		System.out.println("send nk");
-		AESEncryptCommon.oos0.writeInt(AESEncryptCommon.Nk);
+		AESEncryptCommon.oos0.writeInt(AESEncryptCommon.Nk);//count 4
 		AESEncryptCommon.oos0.flush();
 		AESEncryptCommon.oos1.writeInt(AESEncryptCommon.Nk);
 		AESEncryptCommon.oos1.flush();
@@ -111,10 +111,14 @@ public class AESEncryptServer extends ProgServer {
 
 	protected void execTransfer() throws Exception {
 		int bytelength = (Wire.labelBitLength-1)/8 + 1;
+//		System.out.println("byte_length:"+bytelength);//10
 
-		for (int i = 0; i < slps.length; i++) {
+		//14080*8
+		for (int i = 0; i < slps.length; i++) {//slps.length 1408
 			int idx = AESEncryptCommon.testBit(AESEncryptCommon.w, i);
-			Utils.writeBigInteger(slps[i][idx], bytelength, AESEncryptCommon.oos0);
+//			System.out.println("slps.length:"+slps.length);
+
+			Utils.writeBigInteger(slps[i][idx], bytelength, AESEncryptCommon.oos0);//10bytes
 			Utils.writeBigInteger(slps[i][idx], bytelength, AESEncryptCommon.oos1);
 			Utils.writeBigInteger(slps[i][idx], bytelength, AESEncryptCommon.oos2);
 			Utils.writeBigInteger(slps[i][idx], bytelength, AESEncryptCommon.oos3);
@@ -210,6 +214,9 @@ public class AESEncryptServer extends ProgServer {
 	protected void commit() throws Exception {
 		System.out.println("server-commi12t");
 		commitment = (String) AESEncryptCommon.oisown.readObject();
+//		byte[] ar = commitment.getBytes();
+		//64
+//		System.out.println("com_length:"+ar.length);
 		StopWatch.taskTimeStamp("server-commit");
 	}
 
@@ -246,6 +253,8 @@ public class AESEncryptServer extends ProgServer {
 
 		for (int i = 0; i < clbs.length; i++) {
 			clbs[i] = clps[i][0];
+//			byte[] re = clbs[i].toByteArray();
+//			System.out.println("clbs_length:"+re.length);
 			clbs1[i] = clps1[i][0];
 			clbs2[i] = clps2[i][0];
 			clbs3[i] = clps3[i][0];
@@ -265,17 +274,37 @@ public class AESEncryptServer extends ProgServer {
 		System.arraycopy(clbs5, 0, mergeclbs, clbs.length+clbs1.length+clbs2.length+clbs3.length+clbs4.length, clbs5.length);
 		System.arraycopy(clbs6, 0, mergeclbs, clbs.length+clbs1.length+clbs2.length+clbs3.length+clbs4.length+clbs5.length, clbs6.length);
 		AESEncryptCommon.oosown.writeObject(slbs);
+		//448*10+448*11
+
+//		for(BigInteger slb:slbs){
+//			byte[] byteArray = slb.toByteArray();
+//			System.out.println("slbs_length"+byteArray.length);
+//
+//		}
+
 		System.out.println("wri1");
 
 		// AESEncryptCommon.oosown.flush();
 
 		AESEncryptCommon.oosown.writeObject(mergeclbs);
+		//448*10+448*11
+//		for(BigInteger mergeclb:mergeclbs){
+//			byte[] byteArray = mergeclb.toByteArray();
+//			System.out.println("merge_length"+byteArray.length);
+//
+//		}
 		AESEncryptCommon.oosown.flush();
 		System.out.println("wri2");
 
 
 
 		BigInteger[] outLabels = (BigInteger[]) AESEncryptCommon.oisown.readObject();
+		//64*10+64*11
+//		for(BigInteger outlabel:outLabels){
+//			byte[] byteArray = outlabel.toByteArray();
+//			System.out.println("outlabel_length"+byteArray.length);
+//
+//		}
 
 		System.out.println("rea-own");
 
@@ -309,7 +338,7 @@ public class AESEncryptServer extends ProgServer {
 			System.out.print(Integer.toString(temp, 16) + " ");
 		}
 		System.out.println();
-		for (int i = 0; i < slps.length; i++) {
+		for (int i = 0; i < slps.length; i++) {//14080
 			int idx = AESEncryptCommon.testBit(AESEncryptCommon.w, i);
 			Utils.writeBigInteger(slps[i][idx], bytelength, AESEncryptCommon.oosown);
 		}
